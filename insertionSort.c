@@ -23,10 +23,16 @@ int main() {
     int key = array[i]; // key, a temporary variable, is initialized to be the
                         // array element of the current iteration
     int j = i - 1;      // Initializes a variable j to act as a second index
-    while (j >= 0 &&
-           array[j] > key) { // while index j is greater than zero and the value
-                             // of the array at that index is greater than the
-                             // value stored in the variable key,
+    while (
+        j >= 0 &&
+        array[j] >
+            key) { // while index j is greater than zero and the value
+                   // of the array at that index is greater than the
+                   // value stored in the variable key,
+                   //? The elements can be sorted in decreasing order simply by
+                   //? changing '>' to '<'. This is trivial because all we are
+                   //? doing is changing the orientation the element will be
+                   //? placed relative to the integer it is being compared to
 
       array[j + 1] = array[j]; // Set the array value at index j+1 equal to the
                                // value at index j
