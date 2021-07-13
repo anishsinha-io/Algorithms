@@ -3,26 +3,39 @@
 #include <stdlib.h>
 #include <string.h>
 
-int getArraySize(int *);
+/*******************************************************************************
+ *
+ * *Program that performs the insertion sort algorithm to sort an array of
+ * *numbers in place.
+ *
+ * ?Anish Sinha, July 13, 2021
+ *
+ * ****************************************************************************/
 
 int main() {
-  int array[6] = {5, 2, 4, 6, 1, 3};
-  int arraySize = getArraySize(array);
-  for (int i = 1; i < 6; i++) {
-    int key = array[i];
-    int j = i - 1;
-    while (j >= 0 && array[j] > key) {
-      array[j + 1] = array[j];
-      j--;
+  int array[6] = {5, 2, 4, 6, 1, 3}; // Initializes an array of unsorted
+                                     // integers
+
+  int arraySize =
+      sizeof(array) / sizeof(array[0]); // Calculates the size of the array
+  for (int i = 0; i < arraySize;
+       i++) {           // Iterates from the start of the array to the end
+    int key = array[i]; // key, a temporary variable, is initialized to be the
+                        // array element of the current iteration
+    int j = i - 1;      // Initializes a variable j to act as a second index
+    while (j >= 0 &&
+           array[j] > key) { // while index j is greater than zero and the value
+                             // of the array at that index is greater than the
+                             // value stored in the variable key,
+
+      array[j + 1] = array[j]; // Set the array value at index j+1 equal to the
+                               // value at index j
+      j--;                     // decrement the index variable
     }
-    array[j + 1] = key;
+    array[j + 1] =
+        key; // The new key value is the value of the array at index j+1
   }
-  for (int i = 0; i < 6; i++) {
+  for (int i = 0; i < arraySize; i++) { // print the array elements
     printf("%d ", array[i]);
   }
-}
-
-int getArraySize(int *array) {
-  int arraySize = sizeof(*array) / sizeof(array[0]);
-  return arraySize;
 }
