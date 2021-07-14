@@ -10,8 +10,9 @@ void print(int *);
 
 int main() {
   int array[15] = {4, 11, 2, 6, 3, 14, 7, 10, 9, 5, 12, 15, 13, 1, 8};
-  mergeSort(array, 0, 15);
+  mergeSort(array, 0, 14);
   print(array);
+  return 0;
 }
 
 void merge(int *A, int p, int q, int r) {
