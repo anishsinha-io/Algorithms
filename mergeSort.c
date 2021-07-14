@@ -9,8 +9,8 @@ void mergeSort(int *, int, int);
 void print(int *);
 
 int main() {
-  int array[15] = {4, 11, 2, 6, 3, 14, 7, 10, 9, 5, 12, 15, 13, 1, 8};
-  mergeSort(array, 0, 14);
+  int array[13] = {4, 11, 2, 6, 3, 7, 10, 9, 5, 12, 13, 1, 8};
+  mergeSort(array, 0, 12);
   print(array);
   return 0;
 }
@@ -51,7 +51,7 @@ void mergeSort(int *A, int p, int r) {
 }
 
 void print(int *arr) {
-  for (int i = 0; i < 15; i++) {
+  for (int i = 0; i < 13; i++) {
     printf("%d ", arr[i]);
   }
 }
