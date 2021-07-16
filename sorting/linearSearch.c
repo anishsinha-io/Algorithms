@@ -1,3 +1,11 @@
+/*******************************************************************************
+ *
+ * *This is a simple algorithm to perform a basic linear search
+ *
+ * @author Anish Sinha, July 13, 2021
+ *
+ * ****************************************************************************/
+
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>

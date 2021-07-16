@@ -1,3 +1,10 @@
+/*******************************************************************************
+ *
+ * *This is a simple algorithm to perform a selection sort on an array
+ *
+ * @author Anish Sinha, July 13, 2021
+ *
+ * ****************************************************************************/
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
