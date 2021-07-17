@@ -13,9 +13,10 @@
 void mergeSort(int *, int);
 void merge(int *, int *, int, int *, int);
 void print(int *, int);
+void sanitize(void);
 
 int main() {
-  int A[] = {2, 4, 1, 6, 8, 5, 9, 3, 7};
+  int A[] = {2, 4, 22, 1, 51, 6, 8, 43, 5, 9, 3, 90, 7, 14};
   int arraySize = sizeof(A) / sizeof(A[0]);
   mergeSort(A, arraySize);
   print(A, arraySize);
