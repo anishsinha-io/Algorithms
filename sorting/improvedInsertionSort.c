@@ -1,65 +1,54 @@
-#include <stdbool.h>
+/*******************************************************************************
+ *
+ * *This is a program that improves upon the insertionSort algorithm by adding
+ * *the capability to search for the location that an item needs to be
+ * *inserted at using a binary search algorithm.
+ *
+ * @author Anish Sinha, July 13, 2021
+ *
+ * ****************************************************************************/
 #include <stdio.h>
-#include <stdlib.h>
 
-typedef struct Node {
-  int data;
-  struct Node *leftLink;
-  struct Node *rightLink;
-} Node;
-
-void createTree(int *, int);
-Node *insert(Node *, int);
-Node *getNewNode(int);
-bool search(Node *, int);
-
-Node *root;
+void insertionSort(int *, int);
+int binarySearch(int *, int, int, int);
+void print(int *, int);
 
 int main() {
-  root = NULL;
-  int array[] = {15, 10, 20, 8, 12, 17, 25};
+  int array[] = {37, 23, 0, 17, 12, 72, 31, 46, 100, 88, 54};
   int arraySize = sizeof(array) / sizeof(array[0]);
-  createTree(array, arraySize);
-  if (search(root, 17)) {
-    printf("Data found");
-  } else {
-    printf("Data not found");
-  }
+  insertionSort(array, arraySize);
+  print(array, arraySize);
 }
 
-Node *getNewNode(int data) {
-  Node *newNode = (Node *)malloc(sizeof(Node));
-  newNode->data = data;
-  newNode->leftLink = NULL;
-  newNode->rightLink = NULL;
-  return newNode;
-}
-
-Node *insert(Node *root, int data) {
-  if (root == NULL) {
-    root = getNewNode(data);
-  } else if (data <= root->data) {
-    root->leftLink = insert(root->leftLink, data);
-  } else {
-    root->rightLink = insert(root->rightLink, data);
-  }
-  return root;
-}
-
-void createTree(int *array, int arraySize) {
+void insertionSort(int *array, int arraySize) {
   for (int i = 0; i < arraySize; i++) {
-    root = insert(root, array[i]);
+    int key = array[i];
+    int j = i - 1;
+    int loc = binarySearch(array, key, 0, j);
+    while (j >= loc) {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = key;
   }
 }
 
-bool search(Node *root, int data) {
-  if (root == NULL) {
-    return false;
-  } else if (root->data == data) {
-    return true;
-  } else if (data < root->data) {
-    return search(root->leftLink, data);
-  } else {
-    return search(root->rightLink, data);
+int binarySearch(int *array, int key, int low, int high) {
+  if (high <= low) {
+    return (key > array[low]) ? (low + 1) : low;
+  }
+  int mid = (high + low) / 2;
+  if (key == array[mid]) {
+    return mid + 1;
+  }
+  if (key > array[mid]) {
+    return binarySearch(array, key, mid + 1, high);
+  }
+  return binarySearch(array, key, low, mid - 1);
+}
+
+void print(int *array, int arraySize) {
+  for (int i = 0; i < arraySize; i++) {
+    printf("%d ", array[i]);
   }
 }
