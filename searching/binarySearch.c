@@ -29,6 +29,7 @@ int main() {
   int array[] = {15, 10, 20, 8, 12, 17, 25};
   int arraySize = sizeof(array) / sizeof(array[0]);
   createTree(array, arraySize);
+
   if (search(root, 8)) {
     printf("Data found");
   } else {
